@@ -76,7 +76,7 @@
                 <input id="txtModalName" type="text" class="modal-input" placeholder="Name" required/>
             </div>
             <div>
-                <input id="btnModalSave" type="button" value="Save" ng-click="vm.modalSaveClick()"/>
+                <input id="btnModalSave" class="js-modal-save" type="button" value="Save" ng-click="vm.modalSaveClick()"/>
             </div>
         </div>
     </div>
@@ -98,14 +98,18 @@
            $('.js-btn-new').click(function(){
                $('.modal').show();
                $('.js-wrapper').toggleClass('inactive-panel');
-           }); 
+           });
            
            $('.js-modal-close').click(function(){
                $('.modal').hide();
                $('.js-wrapper').toggleClass('inactive-panel');
                $('#txtModalName').val('');
                $('#binModalFile').val('');
-           }); 
+           });
+
+           $('.js-modal-save').click(function(){
+               $('.js-modal-close').click();
+           });
         });
     </script>
 </body>

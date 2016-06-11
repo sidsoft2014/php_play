@@ -103,6 +103,7 @@
             };
 
             var msg = '';
+            var confMsg = 'Confirm you wish to create ';
 
             switch (vm.areaName) {
                 case 'tracks':
@@ -113,14 +114,20 @@
                     }
                     params.file = file;
                     msg = 'Track upload begun.';
+                    confMsg += 'the new track ' + name;
                     break;
                 default:
                     msg = 'Saved: ' + name;
+                    confMsg += name + ' in ' + vm.areaName;
                     break;
             }
 
-            alert(msg);
-            $('.js-modal-close').click();
+            confMsg += '?';
+            if (window.confirm(confMsg)) {
+                alert(msg);
+            } else {
+                alert('Cancelled');
+            }
         }
     }
 
