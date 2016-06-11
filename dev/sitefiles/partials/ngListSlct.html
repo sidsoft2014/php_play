@@ -1,0 +1,10 @@
+<div class="list list-vertical" ng-show="vm.areaName !== ''">
+    <div class="list-top-panel">
+        <em>{{vm.areaName}}</em>
+    </div>
+    <div class="list-selector">
+        <div class="list-item" ng-repeat="artist in vm.artists" ng-click="vm.editorItemClick($index)">
+            {{artist.name}}
+        </div>
+    </div>
+</div>

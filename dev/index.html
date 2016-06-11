@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>MusicMate</title>
+  <link rel="stylesheet" href="sitefiles/styles/css/main.css">
+  <script type="text/javascript" src="/sitefiles/scripts/libs/jquery-2.2.0.min.js"></script>
+  <script type="text/javascript" src="/sitefiles/scripts/libs/angular.min.js"></script>
+  <script type="text/javascript" src="/sitefiles/scripts/js/main.js"></script>
+</head>
+<body>
+<div class="wrapper">
+  <div class="js-layout-nav layout-nav nav">
+    <ng-navbar></ng-navbar>
+  </div>
+  <div class="js-layout-body layout-body">
+
+  </div>
+  <div class="push"></div>
+</div>
+<div class="js-layout-foot layout-foot">
+  <span>&copy;SidSoft {{vm.year}}</span>
+</div>
+<!--inject:js -->
+<script src="sitefiles/scripts/ng/modules/ngMain.js"></script>
+<script src="sitefiles/scripts/ng/services/userService.js"></script>
+<script src="sitefiles/scripts/ng/services/navService.js"></script>
+<script src="sitefiles/scripts/ng/services/cookieService.js"></script>
+<script src="sitefiles/scripts/ng/modules/ngProfile.js"></script>
+<script src="sitefiles/scripts/ng/directives/ngNavbar.js"></script>
+<script src="sitefiles/scripts/ng/directives/ngLeftMenu.js"></script>
+<script src="sitefiles/scripts/ng/controllers/profileCtrl.js"></script>
+<!-- endinject-->
+</body>
+</html>

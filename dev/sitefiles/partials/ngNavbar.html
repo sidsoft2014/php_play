@@ -1,0 +1,9 @@
+<ul ng-show="vm.links.length > 0" class="nav-list nav-list-left">
+  <li ng-repeat="link in vm.links" class="nav-list-item rsp">
+    <a href="{{link.href}}" class="nav-link">
+        <div class="nav-link-inner">
+            <div class="nav-deco">&nbsp;</div><p>{{link.name}}</p>
+        </div>
+    </a>
+  </li>
+</ul>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>MusicMate | Login</title>
+    <link rel="stylesheet" href="sitefiles/styles/css/main.css">
+    <script type="text/javascript" src="/sitefiles/scripts/libs/jquery-2.2.0.min.js"></script>
+    <script type="text/javascript" src="/sitefiles/scripts/libs/angular.min.js"></script>
+    <script type="text/javascript" src="/sitefiles/scripts/js/main.js"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="form form-login">
+            <h3>Login</h3>
+            <form action="/api/auth.php" method="post" name="login">
+                <input type="hidden" name="type" value="login" />
+                <div class="form-input">
+                    <label for="txtName">Name</label>
+                    <input id="txtName" name="name" type="text" placeholder="Enter username" required/>
+                </div>
+                <div class="form-input">
+                    <label for="txtPass">Password</label>
+                    <input id="txtPass" name="pass" type="password" placeholder="Enter password" required/>
+                </div>
+                <div class="form-input">
+                    <input type="submit" class="btn btn-submit" value="Submit" />
+                </div>
+            </form>
+        </div>
+        <div class="form form-reg">
+            <h3>Register</h3>
+            <form action="/api/auth.php" method="post" name="reg">
+                <input type="hidden" name="type" value="reg" />
+                <div class="form-input">
+                    <label for="txtNameReg">Name</label>
+                    <input id="txtNameReg" name="name" type="text" placeholder="Enter username" required />
+                </div>
+                <div class="form-input">
+                    <label for="txtEmailReg">Email</label>
+                    <input id="txtEmailReg" name="email" type="email" placeholder="Enter email" required/>
+                </div>
+                <div class="form-input">
+                    <label for="txtPassReg">Password</label>
+                    <input id="txtPassReg" name="pass" type="password" placeholder="Enter password" onkeyup="checkPass()" required />
+                </div>
+                <div class="form-input">
+                    <label for="txtPassConfReg">Confirm Password</label>
+                    <input id="txtPassConfReg" name="passconf" type="password" placeholder="Confirm password" onkeyup="checkPass()" required/>
+                    <p id="txtConfError" class="text text-error"><em>Passwords must match</em></p>
+                </div>
+                <div class="form-input">
+                    <input id="btnSubmitReg" class="btn btn-submit" type="submit" value="Submit" style="display: none" />
+                </div>
+            </form>
+        </div>
+        <hr/>
+    </div>
+    <script type="text/javascript">
+        function checkPass() {
+            var pass = $('#txtPassReg').val();
+            var conf = $('#txtPassConfReg').val();
+            while (pass.indexOf(' ') > -1) {
+                pass = pass.replace(' ', '');
+            }
+            while (conf.indexOf(' ') > -1) {
+                conf = conf.replace(' ', '');
+            }
+            if (pass == conf && pass != '') {
+                $('#btnSubmitReg').show();
+                $('#txtConfError').hide();
+            } else {
+                $('#btnSubmitReg').hide()
+                $('#txtConfError').show();
+            }
+        }
+    </script>
+</body>
+
+</html>

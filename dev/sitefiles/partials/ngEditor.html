@@ -1,0 +1,19 @@
+<div class="editor editor-profile" ng-show="editorvm.areaName !== ''">
+    <div class="editor-ctrl-panel">
+        <div class="editor-btn-panel">
+            <input type="button" onclick="btnEditorClick('new')" name="editor-new" class="btn btn-editor inactive" value="New" />
+            <em>{{editorvm.areaName}}</em>
+        </div>
+        <div class="editor-form-panel">
+            <input type="hidden" name="type" value="profile" />
+            <input type="hidden" class="js-editor-dto" name="dto" value={{editorvm.areaName}} />
+            <input type="text" name="editor-name" placeholder="Name" required/>
+            <input type="button" class="btn btn-editor" value="Submit" />
+        </div>
+    </div>
+    <div class="editor-selector">
+        <div class="editor-item" ng-repeat="item in editorvm.list" ng-click="editorvm.editorItemClick($index)">
+            {{item.name}}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,44 @@
+.btn {
+  height: $height-default;
+  border-radius: 5px;
+  margin: 10px;
+  
+  &:hover{
+    cursor: pointer;
+  }
+  
+  &.active {
+    opacity: 0.75;
+  }
+  
+  &-submit {
+    background-color: $color-primary-0;
+  }
+  
+  &-editor {
+    height: 100%;
+    margin: 0;
+    background-color: $color-secondary-4;
+    color: $color-secondary-0;
+    
+    @media only screen and (min-width: $bp-desk-min) {
+      width: 64px;
+    }
+    
+    &:hover{
+      background-color: $color-secondary-1;
+      color: $color-secondary-4;
+    }
+    
+    &.inactive {
+      opacity: 0.5;
+      cursor: auto;
+      pointer-events: none;
+      
+      &:hover {
+        background-color: $color-secondary-4;
+        color: $color-secondary-0;
+      }
+    }
+  }
+}

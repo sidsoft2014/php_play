@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type="text/javascript">
+        (function() {
+            var name = 'user' + "=";
+            var cookie = '';
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    cookie = unescape(c.substring(name.length, c.length));
+                }
+            }
+            if (cookie === '') {
+                window.location.assign('/login.html');
+            }
+        }());
+    </script>
+
+    <meta charset="utf-8">
+    <title>MusicMate | Profile</title>
+
+    <link rel="stylesheet" href="/sitefiles/styles/css/main.css">
+    <script type="text/javascript" src="/sitefiles/scripts/libs/jquery-2.2.0.min.js"></script>
+    <script type="text/javascript" src="/sitefiles/scripts/libs/angular.min.js"></script>
+    <script type="text/javascript" src="/sitefiles/scripts/js/main.js"></script>
+
+</head>
+
+<body ng-app="ngProfile" ng-controller="profileCtrl as vm">
+    <div class="js-wrapper wrapper">
+        <div class="js-layout-nav layout-nav nav">
+            <ng-navbar></ng-navbar>
+        </div>
+        <div class="js-layout-body layout-body">
+            <div class="col-3 body-panel">
+                <ng-left-menu></ng-left-menu>
+            </div>
+            <div class="col-9 body-panel">
+                <div class="list list-vertical" ng-show="vm.areaName !== ''">
+                    <div class="list-top-panel">
+                        <button class="js-btn-new btn btn-editor" ng-click="vm.btnNewClick()">New</button><em>{{vm.areaName}}</em>
+                    </div>
+                    <div class="list-selector">
+                        <div class="list-item" ng-repeat="item in vm.list" ng-click="vm.listItemClick($index)">
+                            <p>{{item.name}}</p>
+                            <img ng-src="/sitefiles/thumbs/{{item.image}}" ng-show="item.image !== '' && item.image !== undefined" alt="img" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="js-layout-foot layout-foot">
+        <span>&copy;SidSoft {{vm.year}}</span>
+    </div>
+    <!-- Modal -->
+    <div class="modal" style="display: none">
+        <button class="js-modal-close modal-close">x</button>
+        <input type="text" placeholder="Name" required/>
+    </div>
+    <!-- End Modal -->
+
+    <!--inject:js -->
+    <script src="../sitefiles/scripts/ng/modules/ngMain.js"></script>
+    <script src="../sitefiles/scripts/ng/services/userService.js"></script>
+    <script src="../sitefiles/scripts/ng/services/navService.js"></script>
+    <script src="../sitefiles/scripts/ng/services/cookieService.js"></script>
+    <script src="../sitefiles/scripts/ng/modules/ngProfile.js"></script>
+    <script src="../sitefiles/scripts/ng/directives/ngNavbar.js"></script>
+    <script src="../sitefiles/scripts/ng/directives/ngLeftMenu.js"></script>
+    <script src="../sitefiles/scripts/ng/controllers/profileCtrl.js"></script>
+    <!-- endinject-->
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+           $('.js-btn-new').click(function(){
+               $('.modal').show();
+               $('.js-wrapper').toggleClass('inactive-panel');
+           }); 
+           
+           $('.js-modal-close').click(function(){
+               $('.modal').hide();
+               $('.js-wrapper').toggleClass('inactive-panel');
+           }); 
+        });
+    </script>
+</body>
+
+</html>

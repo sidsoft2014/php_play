@@ -1,0 +1,7 @@
+.text {
+  height: $height-default;
+  margin: 10px;
+  &-error {
+    color: #ff3333;
+  }
+}

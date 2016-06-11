@@ -1,0 +1,29 @@
+.form {
+    width: 400px;
+    margin: 10px;
+    padding: 10px;
+    float: left;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    &-login {}
+    &-reg {}
+    &-input {
+      text-align: right;
+        input[type="email"],
+        input[type="password"],
+        input[type="text"] {
+            height: $height-default;
+            width: 70%;
+            max-width: 256px;
+            display: inline-block;
+            text-align: left;
+            margin-left: 3px;
+        }
+        label {
+            height: $height-default;
+            width: 128px;
+            text-align: right;
+            display: inline-block;
+        }
+    }
+}

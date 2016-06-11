@@ -1,0 +1,34 @@
+.menu {
+    list-style: none;
+    text-transform: capitalize;
+    font-weight: 800;
+    
+    &-left {
+        position: relative;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        
+        &-item {
+            border: 1px solid #000000;
+            border-radius: 5px;
+            margin: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+            
+            div {
+                text-align: left;
+            }
+            
+            &.active {
+                cursor: none;
+                opacity: 0.5;
+            }
+            
+            &:hover{
+                opacity: 1;
+                @include box-shadow;
+            }
+        }
+    }
+}
