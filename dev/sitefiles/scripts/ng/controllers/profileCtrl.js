@@ -94,6 +94,9 @@
             if (!hasValue(name) || !hasValue(vm.areaName)) {
                 alert('Name required');
                 return;
+            } else if (!hasValue(vm.user)) {
+                alert('User not recognised.');
+                return;
             }
 
             var params = {
@@ -124,7 +127,7 @@
 
             confMsg += '?';
             if (window.confirm(confMsg)) {
-                alert(msg);
+                userService.createEntry(vm.user, params);
             } else {
                 alert('Cancelled');
             }

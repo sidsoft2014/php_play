@@ -10,7 +10,8 @@
       getUserTracks: getUserTracks,
       getUserLabels: getUserLabels,
       getUserReleases: getUserReleases,
-      getUserArtists: getUserArtists
+      getUserArtists: getUserArtists,
+      createEntry : createEntry
     };
 
     return service;
@@ -45,6 +46,16 @@
         { name: 'track 1', id: 'hfgfhgfghfghfhg', image: 'hfgfhgfghfghfhg.jpg', description: 'what?' },
         { name: 'Track2', id: 'hfgfghjfffghfhg', image: 'hfgfghjfffghfhg.jpg', description: 'some description' }
       ];
+    }
+
+    function createEntry(user, params) {
+      if(!hasValue(user) || !hasValue(params)) {
+        console.error('Could not create entry.');
+        return;
+      }
+      else {
+        alert('Creating');
+      }
     }
   }
 } ());
