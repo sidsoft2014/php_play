@@ -507,3 +507,25 @@ hr {
   font-weight: 600;
   text-transform: uppercase;
 }
+
+.modal-inner {
+  margin: 10px;
+  text-align: center;
+}
+
+.modal-header {
+  margin: 5px;
+  text-transform: capitalize;
+}
+
+.modal-label {
+  font-weight: 600;
+  text-align: right;
+}
+
+.modal-input {
+  width: 70%;
+  max-width: 256px;
+  padding: 5px;
+  font-size: 14px;
+}

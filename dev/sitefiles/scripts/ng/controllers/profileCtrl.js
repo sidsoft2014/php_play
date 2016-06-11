@@ -30,7 +30,7 @@
         ];
         vm.onMenuClick = onMenuClick;
         vm.listItemClick = listItemClick;
-        vm.btnNewClick = btnNewClick;
+        vm.modalSaveClick = modalSaveClick;
 
         activate();
 
@@ -51,7 +51,7 @@
 
             vm.user = userService.getUserFromCookie(cookie);
             vm.user.sess = sessId;
-            
+
             vm.links = navService.getLinks('profile');
         }
 
@@ -77,20 +77,50 @@
                     vm.list = vm.labels = userService.getUserLabels(vm.user);
                     break;
                 default:
-                vm.list = [];
+                    vm.list = [];
                     break;
             }
         }
 
         function listItemClick(idx) {
             var item = vm.list[idx];
-            var uri = '/members/'+vm.areaName+'.html?id='+item.id;
+            var uri = '/members/' + vm.areaName + '.html?id=' + item.id;
             window.location.assign(uri);
             return;
         }
-        
-        function btnNewClick(){
-            alert('Create new: ' + vm.areaName);
+
+        function modalSaveClick() {
+            var name = document.getElementById('txtModalName').value;
+            if (!hasValue(name) || !hasValue(vm.areaName)) {
+                alert('Name required');
+                return;
+            }
+
+            var params = {
+                area: vm.areaName,
+                mode: 'create',
+                name: name
+            };
+
+            var msg = '';
+
+            switch (vm.areaName) {
+                case 'tracks':
+                    var file = document.getElementById('binModalFile').value;
+                    if (!hasValue(file)) {
+                        alert('No file');
+                        return;
+                    }
+                    params.file = file;
+                    msg = 'Track upload begun.';
+                    break;
+                default:
+                    msg = 'Saved: ' + name;
+                    break;
+            }
+
+            alert(msg);
+            $('.js-modal-close').click();
         }
     }
 

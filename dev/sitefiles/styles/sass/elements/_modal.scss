@@ -35,4 +35,26 @@
             text-transform: uppercase;
         }
   }
+
+  &-inner {
+      margin: 10px;
+      text-align: center;
+  }
+
+  &-header {
+      margin: 5px;
+      text-transform: capitalize;
+  }
+
+  &-label {
+      font-weight: 600;
+      text-align: right;
+  }
+
+  &-input {
+      width: 70%;
+      max-width: 256px;
+      padding: 5px;
+      font-size: 14px;
+  }
 }

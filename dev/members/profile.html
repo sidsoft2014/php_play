@@ -45,7 +45,7 @@
             <div class="col-9 body-panel">
                 <div class="list list-vertical" ng-show="vm.areaName !== ''">
                     <div class="list-top-panel">
-                        <button class="js-btn-new btn btn-editor" ng-click="vm.btnNewClick()">New</button><em>{{vm.areaName}}</em>
+                        <button class="js-btn-new btn btn-editor">New</button><em>{{vm.areaName}}</em>
                     </div>
                     <div class="list-selector">
                         <div class="list-item" ng-repeat="item in vm.list" ng-click="vm.listItemClick($index)">
@@ -64,7 +64,21 @@
     <!-- Modal -->
     <div class="modal" style="display: none">
         <button class="js-modal-close modal-close"><strong>x</strong></button>
-        <input type="text" placeholder="Name" required/>
+
+        <div class="modal-inner">
+            <h3 class="modal-header">Create new {{vm.areaName}}</h3>
+            <div ng-show="vm.areaName === 'tracks'">
+                <label for="binModalFile" class="modal-label">File:</label>
+                <input id="binModalFile" type="file" class="modal-input"/>
+            </div>
+            <div>
+                <label for="txtModalName" class="modal-label">Name:</label>
+                <input id="txtModalName" type="text" class="modal-input" placeholder="Name" required/>
+            </div>
+            <div>
+                <input id="btnModalSave" type="button" value="Save" ng-click="vm.modalSaveClick()"/>
+            </div>
+        </div>
     </div>
     <!-- End Modal -->
 
@@ -89,6 +103,8 @@
            $('.js-modal-close').click(function(){
                $('.modal').hide();
                $('.js-wrapper').toggleClass('inactive-panel');
+               $('#txtModalName').val('');
+               $('#binModalFile').val('');
            }); 
         });
     </script>
